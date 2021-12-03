@@ -1,4 +1,4 @@
-# multi_monitor_tool Japanese Translation
+# MultiMonitorTool Japanese Translation
 
 This repositry provides Japanese translation files and some usage for MultiMonitorTool.
 
