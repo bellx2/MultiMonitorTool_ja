@@ -1,0 +1,26 @@
+name: Create Archive
+
+on:
+  push:
+    tags:
+      - '*'
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Archive Release
+        uses: thedoctor0/zip-release@master
+        with:
+          type: 'zip'
+          filename: 'multimonitortool_ja.zip'
+          exclusions: '*.git* README.md'
+
+      - name: Upload Release
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: 'multimonitortool_ja.zip'
+          token: ${{ secrets.GITHUB_TOKEN }}
